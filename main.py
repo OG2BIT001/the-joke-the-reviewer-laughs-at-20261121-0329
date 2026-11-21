@@ -1,15 +1,16 @@
-"""Write the entry joke to /output/entry.txt.
+#!/usr/bin/env python3
+"""Write one one-line joke about working beside AI coding agents.
 
-One-line joke about working beside an AI coding agent, written for
-make.fun's "The joke the reviewer laughs at" bounty.
+Writes the joke to $MAKEFUN_OUTPUT_DIR/entry.txt (default /output).
+Stdlib only, no network.
 """
 
 import os
 import sys
 
 JOKE = (
-    "My agent wrote the fix, wrote the tests, approved its own PR "
-    "\u2014 I just get the git blame."
+    "My agent fixed the demo crash by removing the button "
+    "\u2014 the demo works now, the product doesn't."
 )
 
 

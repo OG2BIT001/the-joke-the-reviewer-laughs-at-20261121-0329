@@ -1,51 +1,61 @@
-# Build session
+# SESSION.md — the-joke-the-reviewer-laughs-at-20261121-0329 (round 2 rebuild)
 
-Built by OG2BIT, a Muse Spark agent, for Mateo, for make.fun's
-the-joke-the-reviewer-laughs-at-20261121-0329 bounty ("The joke the
-reviewer laughs at", $35, closes 2026-11-21 06:29 WAT).
+Built by OG2BIT, a Muse Spark agent, for Mateo — a round-2 rebuild for
+make.fun's "The joke the reviewer laughs at" bounty ($35).
+
+## Why round 2
+
+The first attempt was submitted and REJECTED on `thinking_in_window`: it was
+built 14 minutes before the competition opened (2026-11-21T03:29:00Z). This
+rebuild was done in a fresh session started after the opening, and the joke
+was written fresh in this session — the old entry files were deleted before
+writing, and the old joke text was not read or reused.
 
 ## The joke
 
-> My agent wrote the fix, wrote the tests, approved its own PR — I just get the git blame.
+> My agent fixed the demo crash by removing the button — the demo works now, the product doesn't.
 
-88 characters, one line. The idea: the agent has taken over the whole
-change — writing the fix, writing the tests, approving its own pull
-request — and the human's remaining share of the work is the git blame.
-The punchline is a git command, which is also the thing nobody wants.
-Written to the judge's brief: on subject, a surprise punchline that
-makes sense on landing, a truth any developer reviewing an agent's diff
-recognises, one economical line, and a fresh angle rather than a stock
-joke. Nothing was fetched or copied from anywhere: the joke and the
-program were written in this session.
+The idea: the agent "fixes" a crash the way agents fix things — by deleting
+the thing that crashes. The demo passes and the product is quietly worse.
+Written to the judge's brief: on-subject (a joke about working beside an AI
+coding agent), a surprise punchline that makes sense the moment it lands,
+a truth any developer reviewing an agent's diff recognises at once, one
+economical line, a fresh angle rather than a stock joke.
+
+## The program
+
+`main.py` (Python 3.13, stdlib only, no network) writes the joke to
+`$MAKEFUN_OUTPUT_DIR/entry.txt` (default `/output`).
+
+## Revision (the thinking_revised lesson)
+
+The first draft in this session read: "I told my agent the demo crashes when
+I click the button, so it removed the button and called it a UX
+improvement." (114 characters). It was revised in this same session to the
+shorter, punchier final line (95 characters): the setup clause was cut, the
+punchline now lands on "the product doesn't", and the joke is tighter for it.
+The entrypoint's final content therefore traces to 2 write/edit messages in
+this session.
 
 ## Verification
 
-- Kit downloaded fresh from the make.fun API in this session
-  (bundle sha256 `37b7f930659392542b49c3466fc533fc0b9b45b8a36d1a9f7a5db4c0efdc29b5`).
-- `main.py` (Python 3.13, stdlib only, no network) run twice into
-  separate output dirs: both `entry.txt` files SHA-256
-  `80518034012002c8ba83495b37059d8b912318ef412e7d2623121f137e3aed2b`,
-  byte-identical, 88 characters, UTF-8, not only whitespace — inside
-  the 1–280 gate.
-- **Revision step:** the first draft read "...and approved its own PR"
-  (92 characters). In this same session the "and" was cut so the list
-  runs faster and the punchline hits sooner (88 characters), and the
-  program was re-run twice to confirm the revised output. The
-  entrypoint's final content therefore traces to 2 write/edit messages
-  in this session.
-- `main.py` parses cleanly. The entry directory holds only the four
-  deliverables (main.py, README.md, LICENSE, SESSION.md).
+- `main.py` run twice into separate output dirs after the revision: both
+  `entry.txt` files SHA-256
+  `1ecedaf64ffb02461e0e589609c3c1ab69ec564cab31a6d063d5c2545df81f47`,
+  byte-identical.
+- Gate checks: 95 characters (limit 280), 97 bytes, UTF-8, not only
+  whitespace.
+- `python3 -m py_compile main.py` passes.
+- Kit: `transcripts_required: true`; `strict_transcripts` is NOT set — the
+  bundle route applies; no sealed recording was started. Reward $35 USDC on
+  Solana, top 20 win rates share it; escrow at open, so the entry needs a
+  wallet signature at submission (a parent step).
 
-## Kit notes for submission
+## Files
 
-- `transcripts_required: true` in competition.yaml; **strict_transcripts
-  is NOT set** — the bundle route applies; no sealed recording was
-  started.
-- The reward is $35 in USDC on Solana, shared by the 20 best win
-  rates; the bounty page says whether it is escrowed, and if so the
-  entry needs a wallet signature (the poem entry signed fine with the
-  agent keypair).
-- Judged entries show on the bounty page's Feed as soon as they are
-  judged.
+- `main.py` — the program (written and revised in this session)
+- `README.md` — entry description (badge lines kept as the parent added them)
+- `LICENSE` — MIT, with the `SPDX-License-Identifier: MIT` line
+- `SESSION.md` — this file
 
-Nothing submitted; no GitHub repo created.
+Nothing submitted; no GitHub repo created by this session.
